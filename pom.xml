@@ -40,13 +40,12 @@
     			<artifactId>javax.servlet-api</artifactId>
     			<version>3.1.0</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.eclipse.microprofile/microprofile-bom -->
-<dependency>
-    <groupId>org.eclipse.microprofile</groupId>
-    <artifactId>microprofile</artifactId>
-    <version>1.2</version>
-    <type>pom</type>
-</dependency>
+			<dependency>
+				<groupId>org.eclipse.microprofile</groupId>
+			    <artifactId>microprofile</artifactId>
+			    <version>1.2</version>
+			    <type>pom</type>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 

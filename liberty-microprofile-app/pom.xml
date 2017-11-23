@@ -26,13 +26,11 @@
     		<artifactId>javax.servlet-api</artifactId>            
             <scope>provided</scope>
         </dependency>
-<!-- https://mvnrepository.com/artifact/org.eclipse.microprofile/microprofile-bom -->
-<dependency>
-    <groupId>org.eclipse.microprofile</groupId>
-    <artifactId>microprofile</artifactId>
-    <type>pom</type>
-</dependency>
-
+		<dependency>
+		    <groupId>org.eclipse.microprofile</groupId>
+		    <artifactId>microprofile</artifactId>
+		    <type>pom</type>
+		</dependency>
     </dependencies>
 
     <build>

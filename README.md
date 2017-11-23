@@ -104,6 +104,7 @@ The above parameters are collected into the *manifest.yml* file. To deploy the a
 ```
 
 When the command is completed, the application will be available by the configured URL:
+
 ![WLP is installed on Bluemix with IBM JVM](images/wlp-install-bluemix-ibm.png)
 
 If you prefer *OpenJDK* vs *IBM JVM*, please use the following command:
@@ -113,6 +114,7 @@ If you prefer *OpenJDK* vs *IBM JVM*, please use the following command:
 ```
 
 When the command is completed, the application will be available by the configured URL:
+
 ![WLP is installed on Bluemix with OpenJDK](images/wlp-install-bluemix-oracle.png)
 
 [openliberty]: http://openliberty.io/

@@ -1,0 +1,15 @@
+applications:
+- path: liberty-microprofile-wlp/target/liberty-microprofile-wlp-1.0-SNAPSHOT.zip
+  timeout: 300
+  memory: 256M
+  instances: 1
+  domain: eu-gb.mybluemix.net
+  name: libertyapi
+  host: plibertyapi
+  disk_quota: 1024M
+  command: "./wlp/bin/server run apiServer"
+  health-check-type: http
+  health-check-http-endpoint: /libertyapi/demo
+  env:
+   JAVA_HOME: "/home/vcap/app/.java-buildpack/open_jdk_jre"
+   JVM_ARGS: "-Xms64m -Xmx128m -XX:MaxMetaspaceSize=128m"

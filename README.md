@@ -1,4 +1,4 @@
-## A WebSphere Liberty Profile Microprofile-1.2 based application prepared for deployment in IBM Cloud
+## A WebSphere Liberty Microprofile-1.2 based application prepared for deployment in IBM Cloud
 
 **WebSphere Liberty** is a fast, dynamic, and easy-to-use Java application server, built on the open source 
 [Open Liberty][openliberty] project. Ideal for developers but also ready for production, on-premise or [in the cloud][bluemix].

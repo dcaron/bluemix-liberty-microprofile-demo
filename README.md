@@ -8,11 +8,11 @@ to quickly and easily create, deploy, and manage applications on the cloud. Blue
 Architecture based on Cloud Foundry, an open source Platform as a Service (PaaS). IBM Cloud Foundry includes runtimes for Java, 
 Node.js, PHP, Python, Ruby, Swift and Go; Cloud Foundry community build packs are also available.
 
-Alhough IBM Cloud has already provided a runtime engine for WebSphere Liberty, sometimes this isn't enough and developers may need
+Although IBM Cloud has already provided a runtime engine for WebSphere Liberty, sometimes this isn't enough and developers may need
 their own version of the platform, i.e. a lightweight version based on Liberty Kernel, or an old version to ensure backward 
-compartibility, or the version of WebSphere Liberty armed with a set of features specific for the developed application.
+compatibility, or the version of WebSphere Liberty armed with a set of features specific for the developed application.
 
-The project provides a demonstration of how to deploy a your own installation of WebSphere Liberty to IBM Cloud as a usual Java
+The project provides a demonstration of how to deploy your own installation of WebSphere Liberty to IBM Cloud as a usual Java
 application. The deployed installation is armed with the latest version of **MicroProfile**, an open forum to collaborate on 
 Enterprise Java Microservices, issued on October 3, 2017.
 
@@ -20,7 +20,7 @@ Enterprise Java Microservices, issued on October 3, 2017.
 tolerance, metrics, and JWT propagation APIs. As stated on the official page of the project, the goal of MicroProfile is to iterate 
 and innovate in short cycles, get community approval, release, and repeat. Eventually, the output of this project could be submitted 
 to the JCP for possible future inclusion in a Java JSR (or some other standards body). The WebSphere Liberty application server 
-implements Microprofile 1.2, just the corresponding feature - `microprofile-1.2` - must be included into the *server.xml* 
+implements Microprofile 1.2, just the corresponding feature - `microprofile-1.2` - must be included in the *server.xml* 
 configuration file.
 
 ### The application structure
@@ -70,7 +70,7 @@ Because no features are specified within the `features` element of the plugin's 
 *server.xml* file will be installed.
 
 IBM Cloud translates requests to the application on port **8080**, so the `httpEndpoint` configuration element of the server must
-up the server on the **0.0.0.0** host and the **8080** port. The server's full configuration can be found here: 
+up the server on host **0.0.0.0** and port **8080**. The server's full configuration can be found here: 
 [server.xml](liberty-microprofile-wlp/src/main/wlp/server.xml).
 
 ### Build the application
@@ -109,7 +109,7 @@ When the command is completed, the application will be available by the configur
 
 ![WLP is installed on Bluemix with IBM JVM](images/wlp-install-bluemix-ibm.png)
 
-If you prefer *OpenJDK* vs *IBM JVM*, please use the following command:
+If you prefer *OpenJDK* instead of *IBM JVM*, please use the following command:
 
 ```
 # cf push -f ./manifest-oracle.yml

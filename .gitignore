@@ -1,0 +1,12 @@
+.metadata
+.recommenders
+RemoteSystemsTempFiles
+Servers
+recent-log
+*/.apt_generated
+*/.classpath
+*/.factorypath
+*/.project
+*/.settings
+*/target
+*/bin

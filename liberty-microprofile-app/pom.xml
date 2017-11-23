@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>psamolysov.bluemix.wlp.demo</groupId>
+    <artifactId>liberty-microprofile-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>Liberty Profile on Bluemix Demo - Microprofile-based (1.2) Adapter for Cloudant - Application</name>
+
+	<parent>
+		<groupId>psamolysov.bluemix.wlp.demo</groupId>
+		<artifactId>liberty-microprofile-demo</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+    <properties>
+    	<maven.compile.source>1.8</maven.compile.source>
+    	<maven.compile.target>1.8</maven.compile.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+        	<groupId>javax.servlet</groupId>
+    		<artifactId>javax.servlet-api</artifactId>            
+            <scope>provided</scope>
+        </dependency>
+<!-- https://mvnrepository.com/artifact/org.eclipse.microprofile/microprofile-bom -->
+<dependency>
+    <groupId>org.eclipse.microprofile</groupId>
+    <artifactId>microprofile</artifactId>
+    <type>pom</type>
+</dependency>
+
+    </dependencies>
+
+    <build>
+		<plugins>
+        	<plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                	<failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>liberty-microprofile-app</warName>
+                </configuration>
+			</plugin>
+		</plugins>
+    </build>
+</project>

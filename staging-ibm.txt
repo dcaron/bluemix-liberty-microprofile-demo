@@ -1,0 +1,13 @@
+Downloading liberty-for-java_v3_13-20170921-1532...
+Downloaded liberty-for-java_v3_13-20170921-1532
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (75.3M)
+Staging...
+-----> Liberty Buildpack Version: v3.13-20170921-1532
+-----> Retrieving IBM 1.8.0_20170823 JRE (ibm-java-jre-8.0-4.11-pxa6480sr4fp11-20170823_01-cloud-unrestricted.tgz) ... (0.0s)
+         Expanding JRE to .java ... (1.3s)
+-----> Retrieving App Management 1.0.0_unknown (app-mgmt_v1.26.1-20170524-1706.zip) ... (0.0s)
+         Expanding App Management to .app-management (0.1s)
+-----> Liberty buildpack is done creating the droplet

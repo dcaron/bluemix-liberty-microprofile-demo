@@ -1,0 +1,19 @@
+<server>
+    <featureManager>
+        <feature>microprofile-1.2</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint"
+                  host="0.0.0.0"
+                  httpPort="8080">
+        <tcpOptions soReuseAddr="true"/>
+    </httpEndpoint>
+    <webContainer trustHostHeaderPort='true' extractHostHeaderPort='true'/>
+    <httpDispatcher enableWelcomePage='true'/>
+    <applicationMonitor dropinsEnabled='false' updateTrigger='mbean'/>
+    <config updateTrigger='mbean'/>
+    <cdi12 enableImplicitBeanArchives='false'/>
+
+    <webApplication id="liberty-microprofile-app" name="liberty-microprofile-app" context-root="/libertyapi" 
+    				location="liberty-microprofile-app.war"/>
+</server>

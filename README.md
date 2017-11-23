@@ -83,6 +83,8 @@ To build the application do:
 
 ### Deploy the application in IBM Cloud
 
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)][deploy-to-bluemix]
+
 By default IBM Cloud uses the *Java Buildpack Version: v3.19* buildpack to make a deployment of the application in the cloud. 
 Since there are a number of executable files in the *wlp/bin* inside the WebSphere Liberty server archive, the buildpack isn't able 
 to find the right one (*wlp/bin/server*). The following command must be specified for the Cloud Foundry Command Line Interface tool 
@@ -121,3 +123,4 @@ When the command is completed, the application will be available by the configur
 [bluemix]: https://console.bluemix.net/
 [microprofile]: https://projects.eclipse.org/projects/technology.microprofile
 [liberty-maven-plugin]: https://github.com/WASdev/ci.maven#packaging-types
+[deploy-to-bluemix]: https://bluemix.net/deploy?repository=https://github.com/samolisov/bluemix-liberty-microprofile-demo

@@ -13,4 +13,4 @@ applications:
   health-check-http-endpoint: /libertyapi/demo
   env:
    JAVA_HOME: "/home/vcap/app/.java/jre"
-   JVM_ARGS: "-Xms64m -Xmx128m -XX:MaxMetaspaceSize=64m"
+   JVM_ARGS: "-Xms64m -Xmx128m"

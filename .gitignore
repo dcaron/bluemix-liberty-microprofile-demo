@@ -3,6 +3,8 @@
 RemoteSystemsTempFiles
 Servers
 recent-log
+.project
+.settings
 */.apt_generated
 */.classpath
 */.factorypath

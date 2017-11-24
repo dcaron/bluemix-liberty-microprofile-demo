@@ -1,4 +1,4 @@
-package billingadapter;
+package psamolysov.bluemix.wlp.demo.servlet;
 
 import java.io.IOException;
 

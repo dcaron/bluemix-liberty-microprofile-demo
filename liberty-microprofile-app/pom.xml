@@ -30,6 +30,7 @@
 		    <groupId>org.eclipse.microprofile</groupId>
 		    <artifactId>microprofile</artifactId>
 		    <type>pom</type>
+		    <scope>provided</scope>
 		</dependency>
     </dependencies>
 

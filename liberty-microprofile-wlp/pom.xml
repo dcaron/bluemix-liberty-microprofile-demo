@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>psamolysov.bluemix.wlp.demo</groupId>
@@ -9,17 +10,17 @@
 
     <name>Liberty Profile on Bluemix Demo - Microprofile-based (1.2) Adapter for Cloudant - Server</name>
 
-	<parent>
-		<groupId>psamolysov.bluemix.wlp.demo</groupId>
-      	<artifactId>liberty-microprofile-demo</artifactId>
-      	<version>1.0-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>psamolysov.bluemix.wlp.demo</groupId>
+        <artifactId>liberty-microprofile-demo</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <dependencies>
         <dependency>
             <groupId>psamolysov.bluemix.wlp.demo</groupId>
-	    	<artifactId>liberty-microprofile-app</artifactId>
-			<type>war</type>
+            <artifactId>liberty-microprofile-app</artifactId>
+            <type>war</type>
         </dependency>
     </dependencies>
 
@@ -34,11 +35,11 @@
                     <serverName>apiServer</serverName>
                     <looseApplication>true</looseApplication>
                     <installAppPackages>dependencies</installAppPackages>
-                    <!--include>runnable</include-->
+                    <!--include>runnable</include -->
                     <stripVersion>true</stripVersion>
                     <features>
-                   		<acceptLicense>true</acceptLicense>
-	                </features>
+                        <acceptLicense>true</acceptLicense>
+                    </features>
                 </configuration>
             </plugin>
         </plugins>

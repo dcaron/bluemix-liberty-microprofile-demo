@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>psamolysov.bluemix.wlp.demo</groupId>
@@ -10,8 +11,8 @@
     <name>Liberty Profile on Bluemix Demo - Microprofile-based (1.2) Adapter for Cloudant</name>
 
     <modules>
-		<module>liberty-microprofile-app</module>
-		<module>liberty-microprofile-wlp</module>
+        <module>liberty-microprofile-app</module>
+        <module>liberty-microprofile-wlp</module>
     </modules>
 
     <licenses>
@@ -23,32 +24,31 @@
     </licenses>
 
     <properties>
-    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencyManagement>
-		<dependencies>
-			<dependency>
-            	<groupId>psamolysov.bluemix.wlp.demo</groupId>
-	            <artifactId>liberty-microprofile-app</artifactId>
-	   	        <version>1.0-SNAPSHOT</version>
-        	    <type>war</type>
-	        </dependency>
-			<dependency>
-    			<groupId>javax.servlet</groupId>
-    			<artifactId>javax.servlet-api</artifactId>
-    			<version>3.1.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.microprofile</groupId>
-			    <artifactId>microprofile</artifactId>
-			    <version>1.2</version>
-			    <type>pom</type>
-			</dependency>
+        <dependencies>
+            <dependency>
+                <groupId>psamolysov.bluemix.wlp.demo</groupId>
+                <artifactId>liberty-microprofile-app</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.microprofile</groupId>
+                <artifactId>microprofile</artifactId>
+                <version>1.2</version>
+                <type>pom</type>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
 
     <build>
         <pluginManagement>
@@ -64,15 +64,15 @@
                     <version>3.2.0</version>
                 </plugin>
                 <plugin>
-        			<groupId>org.apache.maven.plugins</groupId>
-        			<artifactId>maven-compiler-plugin</artifactId>
-        			<version>3.6.1</version>
-        			<configuration>
-          				<source>${maven.compile.source}</source>
-          				<target>${maven.compile.target}</target>
-        			</configuration>
-      			</plugin>                
-      		</plugins>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.6.1</version>
+                    <configuration>
+                        <source>${maven.compile.source}</source>
+                        <target>${maven.compile.target}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
         </pluginManagement>
     </build>
 </project>

@@ -26,6 +26,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <servlet.api.version>3.1.0</servlet.api.version>
+        <microprofile.api.version>1.2</microprofile.api.version>
     </properties>
 
     <dependencyManagement>
@@ -39,12 +41,12 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <version>${servlet.api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.microprofile</groupId>
                 <artifactId>microprofile</artifactId>
-                <version>1.2</version>
+                <version>${microprofile.api.version}</version>
                 <type>pom</type>
             </dependency>
         </dependencies>

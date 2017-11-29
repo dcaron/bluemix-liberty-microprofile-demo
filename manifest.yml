@@ -1,7 +1,7 @@
 applications:
 - path: liberty-microprofile-wlp/target/liberty-microprofile-wlp-1.0-SNAPSHOT.zip
   timeout: 300
-  memory: 192M
+  memory: 256M
   instances: 1
   domain: eu-gb.mybluemix.net
   name: libertyapi

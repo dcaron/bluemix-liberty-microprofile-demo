@@ -21,6 +21,12 @@ public class Reservation {
 	
 	public Reservation(String venue, String venueId, LocalDate date, LocalTime startTime, 
 			Duration duration) {
+		this(null, venue, venueId, date, startTime, duration);
+	}
+	
+	public Reservation(String id, String venue, String venueId, LocalDate date, LocalTime startTime, 
+			Duration duration) {
+		this.id = id;
 		this.venue = venue;
 		this.venueId = venueId;
 		this.date = date;

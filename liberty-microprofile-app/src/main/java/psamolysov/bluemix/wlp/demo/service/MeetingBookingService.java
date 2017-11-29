@@ -31,6 +31,6 @@ public class MeetingBookingService {
 	@Path("/{id}")
 	@Produces(APPLICATION_JSON)
 	public Reservation get(@PathParam("id") String id) {		
-		return new Reservation("Room 200", "100", LocalDate.now(), LocalTime.now(), Duration.of(2, ChronoUnit.HOURS));
+		return new Reservation("abc", "Room 200", "100", LocalDate.now(), LocalTime.now(), Duration.of(2, ChronoUnit.HOURS));
 	}
 }

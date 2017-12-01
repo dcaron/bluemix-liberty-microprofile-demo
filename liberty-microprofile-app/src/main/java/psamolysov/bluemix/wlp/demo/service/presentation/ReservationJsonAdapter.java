@@ -45,9 +45,8 @@ public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
 	}
 
 	@Override
-	public void toJson(OutputStream os, Reservation reservation) {
+	public JsonObject toJson(Reservation reservation) {
 		Objects.requireNonNull(reservation, RESERVATION_ISNT_ALLOWED_TO_BE_NULL);
-		JsonWriter jsonWriter = Json.createWriter(os);
 		JsonObjectBuilder builder = Json.createObjectBuilder();
         if (reservation.getId() != null)
             builder = builder.add("id", reservation.getId());
@@ -61,7 +60,14 @@ public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
         	builder = builder.add("startAt", format(reservation.getStartTime()));
         if (reservation.getDuration() != null)
             builder = builder.add("duration", format(reservation.getDuration()));
-        jsonWriter.writeObject(builder.build());
+        return builder.build();
+	}
+	
+	@Override
+	public void toJson(OutputStream os, Reservation reservation) {
+		Objects.requireNonNull(reservation, RESERVATION_ISNT_ALLOWED_TO_BE_NULL);
+		JsonWriter jsonWriter = Json.createWriter(os);
+        jsonWriter.writeObject(toJson(reservation));
         jsonWriter.close();
 	}
 }

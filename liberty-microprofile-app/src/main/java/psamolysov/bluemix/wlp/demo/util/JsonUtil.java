@@ -80,15 +80,15 @@ public class JsonUtil {
 		return duration.toMinutes();
 	}
 	
-	private static LocalDate date(String date) {
+	public static LocalDate date(String date) {
 		return LocalDate.parse(date, LOCAL_DATE_FORMATTER);
 	}
 	
-	private static LocalTime time(String time) {
+	public static LocalTime time(String time) {
 		return LocalTime.parse(time, LOCAL_TIME_FORMATTER);
 	}
 	
-	private static Duration duration(int minutes) {
+	public static Duration duration(int minutes) {
 		return Duration.ofMinutes(minutes);
 	}
 }

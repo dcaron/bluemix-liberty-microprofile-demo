@@ -71,6 +71,7 @@ public class Reservation {
         if (o == null || getClass() != o.getClass()) return false;
         final Reservation reservation = (Reservation) o;
         return Objects.equals(venue, reservation.venue) &&
+        	   Objects.equals(reservedBy, reservation.reservedBy) &&
                Objects.equals(date, reservation.date) &&
                Objects.equals(startTime, reservation.startTime) &&
                Objects.equals(duration, reservation.duration);
@@ -78,7 +79,7 @@ public class Reservation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(venue, date, startTime, duration);
+        return Objects.hash(venue, reservedBy, date, startTime, duration);
     }
 	
 	@Override
@@ -86,6 +87,7 @@ public class Reservation {
 		return "Reservation [" +
 				"id = " + id +
 				", venue = " + venue + 
+				", reservedBy = " + reservedBy + 
 				", date = " + date + 
 				", startTime = " + startTime + 
 				", duration = " + duration + "]";

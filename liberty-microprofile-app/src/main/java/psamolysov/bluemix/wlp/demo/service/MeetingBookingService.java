@@ -21,7 +21,7 @@ import psamolysov.bluemix.wlp.demo.model.Reservation;
 import psamolysov.bluemix.wlp.demo.persistence.ReservationDao;
 import psamolysov.bluemix.wlp.demo.persistence.inmemory.InMemory;
 
-@Path("/meeting")
+@Path("/")
 @ApplicationScoped
 public class MeetingBookingService {
 	
@@ -44,7 +44,7 @@ public class MeetingBookingService {
 	}
 	
 	@GET
-	@Path("/{id}")
+	@Path("/meeting/{id}")
 	@Produces(APPLICATION_JSON)
 	public Reservation get(@PathParam("id") String id) {
 		Reservation reservation = reservationDao.get(id);
@@ -54,7 +54,7 @@ public class MeetingBookingService {
 	}
 	
 	@POST
-	@Path("/")
+	@Path("/meeting")
 	@Produces(APPLICATION_JSON)
 	@Consumes(APPLICATION_JSON)
 	public Reservation make(Reservation reservation) {

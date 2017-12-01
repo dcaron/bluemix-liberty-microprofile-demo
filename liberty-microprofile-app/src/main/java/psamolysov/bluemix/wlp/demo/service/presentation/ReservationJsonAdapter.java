@@ -1,10 +1,15 @@
 package psamolysov.bluemix.wlp.demo.service.presentation;
 
 import static psamolysov.bluemix.wlp.demo.util.JsonUtil.format;
+import static psamolysov.bluemix.wlp.demo.util.JsonUtil.getDate;
 import static psamolysov.bluemix.wlp.demo.util.JsonUtil.getString;
+import static psamolysov.bluemix.wlp.demo.util.JsonUtil.getTime;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -15,6 +20,7 @@ import javax.json.JsonReader;
 import javax.json.JsonWriter;
 
 import psamolysov.bluemix.wlp.demo.model.Reservation;
+import psamolysov.bluemix.wlp.demo.util.JsonUtil;
 
 @ApplicationScoped
 public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
@@ -29,8 +35,12 @@ public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
             String id = getString("id", registrationJson);
         	String venue = getString("venue", registrationJson);
         	String venueId = getString("venueId", registrationJson);
-        	// TODO add an implementation for date, startTime and duration
-            return new Reservation(id, venue, venueId, null, null, null);            
+        	LocalDate date = getDate("date", registrationJson);
+        	LocalTime time = getTime("startAt", registrationJson);
+        	Duration duration = JsonUtil.getDuration("duration", registrationJson);
+        	// TODO add BeanValidation, so bean can't be deserialized wo date, time, and duration
+        	// TODO add reaction to Non number (Duration) and AriphmeticException (Duration fractional)
+            return new Reservation(id, venue, venueId, date, time, duration);
     	}
 	}
 

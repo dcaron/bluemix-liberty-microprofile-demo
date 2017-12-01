@@ -34,7 +34,7 @@ public class MeetingBookingService {
 	@Path("/{id}")
 	@Produces(APPLICATION_JSON)
 	public Reservation get(@PathParam("id") String id) {		
-		return new Reservation(id, "Room 200", "100", "psamolysov", LocalDate.now(), LocalTime.now(), Duration.of(2, ChronoUnit.HOURS));
+		return new Reservation(id, "Room 200", "psamolysov", LocalDate.now(), LocalTime.now(), Duration.of(2, ChronoUnit.HOURS));
 	}
 	
 	@POST
@@ -44,7 +44,6 @@ public class MeetingBookingService {
 	public Reservation make(Reservation reservation) {
 		return new Reservation(UUID.randomUUID().toString(),
 				reservation.getVenue(),
-				reservation.getVenueId(),
 				reservation.getReservedBy(),
 				reservation.getDate(),
 				reservation.getStartTime(),

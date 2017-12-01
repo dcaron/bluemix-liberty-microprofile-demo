@@ -11,8 +11,6 @@ public class Reservation {
 	
 	private String venue;
 	
-	private String venueId;
-	
 	private String reservedBy;
 	
 	private LocalDate date;
@@ -21,16 +19,15 @@ public class Reservation {
 	
 	private Duration duration;
 	
-	public Reservation(String venue, String venueId, String reservedBy, LocalDate date, LocalTime startTime,
+	public Reservation(String venue, String reservedBy, LocalDate date, LocalTime startTime,
 			Duration duration) {
-		this(null, venue, venueId, reservedBy, date, startTime, duration);
+		this(null, venue, reservedBy, date, startTime, duration);
 	}
 	
-	public Reservation(String id, String venue, String venueId, String reservedBy, LocalDate date, 
+	public Reservation(String id, String venue, String reservedBy, LocalDate date, 
 			LocalTime startTime, Duration duration) {
 		this.id = id;
 		this.venue = venue;
-		this.venueId = venueId;
 		this.reservedBy = reservedBy;
 		this.date = date;
 		this.startTime = startTime;
@@ -43,10 +40,6 @@ public class Reservation {
 
 	public String getVenue() {
 		return venue;
-	}
-
-	public String getVenueId() {
-		return venueId;
 	}
 	
 	public String getReservedBy() {

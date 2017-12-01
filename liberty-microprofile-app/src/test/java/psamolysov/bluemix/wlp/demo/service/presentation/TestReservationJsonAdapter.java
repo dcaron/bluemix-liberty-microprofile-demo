@@ -27,22 +27,20 @@ public class TestReservationJsonAdapter {
 	private static final LocalDate RESERVATION_DATE = LocalDate.of(2017, 11, 29);
 
 	private static final String RESERVATION_RESERVED_BY = "psamolysov";
-	
-	private static final String RESERVATION_VENUE_ID = "101-a";
 
 	private static final String RESERVATION_VENUE = "Large Meeting Room";
 	
 	private static final String RESERVATION_ID = "100";
 
-	private static final String JSON_TEMPLATE = "\"id\":\"{0}\",\"venue\":\"{1}\",\"venueId\":\"{2}\","
-			+ "\"reservedBy\":\"{3}\",\"date\":\"{4}\",\"startAt\":\"{5}\",\"duration\":{6}";
+	private static final String JSON_TEMPLATE = "\"id\":\"{0}\",\"venue\":\"{1}\",\"reservedBy\":\"{2}\"," 
+			+ "\"date\":\"{3}\",\"startAt\":\"{4}\",\"duration\":{5}";
 	
-	private static final String JSON_WO_ID_TEMPLATE = "\"venue\":\"{0}\",\"venueId\":\"{1}\","
-			+ "\"reservedBy\":\"{2}\",\"date\":\"{3}\",\"startAt\":\"{4}\",\"duration\":{5}";
+	private static final String JSON_WO_ID_TEMPLATE = "\"venue\":\"{0}\",\"reservedBy\":\"{1}\","
+			+ "\"date\":\"{2}\",\"startAt\":\"{3}\",\"duration\":{4}";
 
-	private static final String JSON_WO_ID_AND_DATES_TEMPLATE = "\"venue\":\"{0}\",\"venueId\":\"{1}\",\"reservedBy\":\"{2}\"";
+	private static final String JSON_WO_ID_AND_DATES_TEMPLATE = "\"venue\":\"{0}\",\"reservedBy\":\"{1}\"";
 
-	private static final String JSON_WO_DATES_TEMPLATE = "\"id\":\"{0}\",\"venue\":\"{1}\",\"venueId\":\"{2}\",\"reservedBy\":\"{3}\"";
+	private static final String JSON_WO_DATES_TEMPLATE = "\"id\":\"{0}\",\"venue\":\"{1}\",\"reservedBy\":\"{2}\"";
 	
 	private static ReservationJsonAdapter adapter = new ReservationJsonAdapter();
 	
@@ -60,7 +58,7 @@ public class TestReservationJsonAdapter {
 	
 	@Test
 	public void testToJsonEmpty() throws Exception {
-		Reservation reservation = new Reservation(null, null, null, null, null, null);
+		Reservation reservation = new Reservation(null, null, null, null, null);
 		adapter.toJson(os, reservation);
 		String result = os.toString();		
 		assertEquals("{}", result);
@@ -68,8 +66,7 @@ public class TestReservationJsonAdapter {
 	
 	@Test
 	public void testToJsonEmptyId() throws Exception {
-		Reservation reservation = new Reservation(RESERVATION_VENUE, 
-				RESERVATION_VENUE_ID,
+		Reservation reservation = new Reservation(RESERVATION_VENUE,
 				RESERVATION_RESERVED_BY,
 				RESERVATION_DATE, 
 				RESERVATION_START_TIME, 
@@ -78,7 +75,6 @@ public class TestReservationJsonAdapter {
 		String result = os.toString();
 		String expected = toJson(JSON_WO_ID_TEMPLATE,
 			reservation.getVenue(), 
-			reservation.getVenueId(), 
 			reservation.getReservedBy(),
 			reservation.getDate(), 
 			reservation.getStartTime(),
@@ -90,7 +86,6 @@ public class TestReservationJsonAdapter {
 	public void testToJsonWithId() throws Exception {
 		Reservation reservation = new Reservation(RESERVATION_ID,
 				RESERVATION_VENUE, 
-				RESERVATION_VENUE_ID,
 				RESERVATION_RESERVED_BY,
 				RESERVATION_DATE, 
 				RESERVATION_START_TIME, 
@@ -100,7 +95,6 @@ public class TestReservationJsonAdapter {
 		String expected = toJson(JSON_TEMPLATE,
 			reservation.getId(),
 			reservation.getVenue(), 
-			reservation.getVenueId(), 
 			reservation.getReservedBy(),
 			reservation.getDate(), 
 			reservation.getStartTime(),
@@ -112,12 +106,10 @@ public class TestReservationJsonAdapter {
 	public void testFromJsonWithoutDatesAndId() throws Exception {
 		InputStream jsonIs = toJsonInputStream(JSON_WO_ID_AND_DATES_TEMPLATE, 
 				RESERVATION_VENUE, 
-				RESERVATION_VENUE_ID,
 				RESERVATION_RESERVED_BY);		
 		Reservation reservation = adapter.fromJson(jsonIs);
 		assertNull(reservation.getId());
 		assertEquals(RESERVATION_VENUE, reservation.getVenue());
-		assertEquals(RESERVATION_VENUE_ID, reservation.getVenueId());
 		assertEquals(RESERVATION_RESERVED_BY, reservation.getReservedBy());
 	}
 
@@ -126,12 +118,10 @@ public class TestReservationJsonAdapter {
 		InputStream jsonIs = toJsonInputStream(JSON_WO_DATES_TEMPLATE,
 				RESERVATION_ID,
 				RESERVATION_VENUE, 
-				RESERVATION_VENUE_ID,
 				RESERVATION_RESERVED_BY);		
 		Reservation reservation = adapter.fromJson(jsonIs);
 		assertEquals(RESERVATION_ID, reservation.getId());
 		assertEquals(RESERVATION_VENUE, reservation.getVenue());
-		assertEquals(RESERVATION_VENUE_ID, reservation.getVenueId());
 		assertEquals(RESERVATION_RESERVED_BY, reservation.getReservedBy());
 	}
 	
@@ -139,14 +129,12 @@ public class TestReservationJsonAdapter {
 	public void testFromJsonWithDates() throws Exception {
 		InputStream jsonIs = toJsonInputStream(JSON_WO_ID_TEMPLATE,
 				RESERVATION_VENUE, 
-				RESERVATION_VENUE_ID,
 				RESERVATION_RESERVED_BY,
 				RESERVATION_DATE,
 				RESERVATION_START_TIME,
 				RESERVATION_DURATION.toMinutes());
 		Reservation reservation = adapter.fromJson(jsonIs);
 		assertEquals(RESERVATION_VENUE, reservation.getVenue());
-		assertEquals(RESERVATION_VENUE_ID, reservation.getVenueId());
 		assertEquals(RESERVATION_RESERVED_BY, reservation.getReservedBy());
 		assertEquals(RESERVATION_DATE, reservation.getDate());
 		assertEquals(RESERVATION_START_TIME, reservation.getStartTime());

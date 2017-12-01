@@ -2,6 +2,7 @@ package psamolysov.bluemix.wlp.demo.service.presentation;
 
 import static psamolysov.bluemix.wlp.demo.util.JsonUtil.format;
 import static psamolysov.bluemix.wlp.demo.util.JsonUtil.getDate;
+import static psamolysov.bluemix.wlp.demo.util.JsonUtil.getDuration;
 import static psamolysov.bluemix.wlp.demo.util.JsonUtil.getString;
 import static psamolysov.bluemix.wlp.demo.util.JsonUtil.getTime;
 
@@ -20,7 +21,6 @@ import javax.json.JsonReader;
 import javax.json.JsonWriter;
 
 import psamolysov.bluemix.wlp.demo.model.Reservation;
-import psamolysov.bluemix.wlp.demo.util.JsonUtil;
 
 @ApplicationScoped
 public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
@@ -37,7 +37,7 @@ public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
         	String reservedBy = getString("reservedBy", registrationJson);
         	LocalDate date = getDate("date", registrationJson);
         	LocalTime time = getTime("startAt", registrationJson);
-        	Duration duration = JsonUtil.getDuration("duration", registrationJson);
+        	Duration duration = getDuration("duration", registrationJson);
         	// TODO add BeanValidation, so bean can't be deserialized wo date, time, and duration
         	// TODO add reaction to Non number (Duration) and AriphmeticException (Duration fractional)
             return new Reservation(id, venue, reservedBy, date, time, duration);

@@ -35,12 +35,13 @@ public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
             String id = getString("id", registrationJson);
         	String venue = getString("venue", registrationJson);
         	String venueId = getString("venueId", registrationJson);
+        	String reservedBy = getString("reservedBy", registrationJson);
         	LocalDate date = getDate("date", registrationJson);
         	LocalTime time = getTime("startAt", registrationJson);
         	Duration duration = JsonUtil.getDuration("duration", registrationJson);
         	// TODO add BeanValidation, so bean can't be deserialized wo date, time, and duration
         	// TODO add reaction to Non number (Duration) and AriphmeticException (Duration fractional)
-            return new Reservation(id, venue, venueId, date, time, duration);
+            return new Reservation(id, venue, venueId, reservedBy, date, time, duration);
     	}
 	}
 
@@ -55,7 +56,9 @@ public class ReservationJsonAdapter implements JsonAdapter<Reservation> {
         	builder = builder.add("venue", reservation.getVenue());
         if (reservation.getVenueId() != null)
         	builder = builder.add("venueId", reservation.getVenueId());
-        if (reservation.getDate() != null)
+        if (reservation.getReservedBy() != null)
+        	builder = builder.add("reservedBy", reservation.getReservedBy());
+        if (reservation.getDate() != null)        	
         	builder = builder.add("date", format(reservation.getDate()));
         if (reservation.getStartTime() != null)
         	builder = builder.add("startAt", format(reservation.getStartTime()));

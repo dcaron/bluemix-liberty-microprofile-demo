@@ -33,7 +33,7 @@
         <profile>
             <id>package-liberty</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <property><name>cloudTests</name></property>
             </activation>
             <modules>
                 <module>liberty-microprofile-wlp</module>

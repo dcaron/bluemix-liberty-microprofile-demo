@@ -12,7 +12,6 @@
 
     <modules>
         <module>liberty-microprofile-app</module>
-        <module>liberty-microprofile-wlp</module>
     </modules>
 
     <licenses>
@@ -29,6 +28,18 @@
         <servlet.api.version>3.1.0</servlet.api.version>
         <microprofile.api.version>1.2</microprofile.api.version>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>package-liberty</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <modules>
+                <module>liberty-microprofile-wlp</module>
+            </modules>
+        </profile>
+    </profiles>
 
     <dependencyManagement>
         <dependencies>

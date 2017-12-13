@@ -14,6 +14,6 @@
     <config updateTrigger='mbean'/>
     <cdi12 enableImplicitBeanArchives='false'/>
 
-    <webApplication id="liberty-microprofile-app" name="liberty-microprofile-app" context-root="${libertyapi.context.root}" 
+    <webApplication id="liberty-microprofile-app" name="liberty-microprofile-app" context-root="/${libertyapi.context.root}" 
     				location="liberty-microprofile-app.war"/>
 </server>

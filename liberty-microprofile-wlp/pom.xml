@@ -20,7 +20,7 @@
         <cfServerHost>0.0.0.0</cfServerHost>
         <cfServerHttpPort>8080</cfServerHttpPort>
         <cfServerHttpsPort>8443</cfServerHttpsPort>
-        <applicationContext>/libertyapi</applicationContext>
+        <applicationContext>libertyapi</applicationContext>
     </properties>
 
     <dependencies>

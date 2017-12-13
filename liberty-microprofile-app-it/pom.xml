@@ -31,7 +31,9 @@
                 <testServerHost>127.0.0.1</testServerHost>
                 <testServerHttpPort>7070</testServerHttpPort>
                 <testServerHttpsPort>9443</testServerHttpsPort>
-                <applicationContext>/libertyapi</applicationContext>
+                <applicationContext>libertyapi</applicationContext>
+                <testProxyHost>${testServerHost}</testProxyHost>
+                <testProxyHttpPort>${testServerHttpPort}</testProxyHttpPort>
             </properties>
             <build>
                 <plugins>
@@ -86,7 +88,9 @@
                 <testServerHost>0.0.0.0</testServerHost>
                 <testServerHttpPort>8080</testServerHttpPort>
                 <testServerHttpsPort>8443</testServerHttpsPort>
-                <applicationContext>/libertyapi</applicationContext>
+                <applicationContext>libertyapi</applicationContext>
+                <testProxyHost>${testServerHost}</testProxyHost>
+                <testProxyHttpPort>${testServerHttpPort}</testProxyHttpPort>                
             </properties>
         </profile>
     </profiles>
@@ -105,6 +109,16 @@
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.json</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -130,8 +144,8 @@
                         </goals>
                         <configuration>
                             <systemPropertyVariables>
-                                <appserver.test.host>${testServerHttpHost}</appserver.test.host>
-                                <appserver.test.port>${testServerHttpPort}</appserver.test.port>
+                                <appserver.test.host>${testProxyHost}</appserver.test.host>
+                                <appserver.test.port>${testProxyHttpPort}</appserver.test.port>
                                 <application.context.root>${applicationContext}</application.context.root>
                             </systemPropertyVariables>
                         </configuration>

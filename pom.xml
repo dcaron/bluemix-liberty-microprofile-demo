@@ -12,6 +12,7 @@
 
     <modules>
         <module>liberty-microprofile-app</module>
+        <module>liberty-microprofile-app-it</module>
     </modules>
 
     <licenses>

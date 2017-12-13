@@ -5,6 +5,7 @@ Servers
 recent-log
 .project
 .settings
+target
 */.apt_generated
 */.classpath
 */.factorypath

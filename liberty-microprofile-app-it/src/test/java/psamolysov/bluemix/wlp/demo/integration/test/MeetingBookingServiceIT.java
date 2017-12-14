@@ -8,7 +8,7 @@ import javax.ws.rs.client.WebTarget;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ReservationIT {
+public class MeetingBookingServiceIT {
 
 	private static final String APPSERVER_TEST_HOST_PROPERTY = "appserver.test.host";
 	
@@ -36,7 +36,7 @@ public class ReservationIT {
 	
 	@Test
 	public void testBaseline() throws Exception {
-        String banner = target.path("/meeting/")
+        String banner = target.path("/")
         		.request()
         		.accept("text/html")
         		.get(String.class);

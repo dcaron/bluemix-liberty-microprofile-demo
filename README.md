@@ -81,6 +81,12 @@ To build the application do:
 # mvn clean package
 ```
 
+To package the WebSphere Liberty server and prepare it for deployment:
+
+```
+# mvn clean package -Ppackage-liberty
+```
+
 ### Deploy the application in IBM Cloud
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)][deploy-to-bluemix]

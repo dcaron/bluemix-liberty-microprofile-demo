@@ -16,6 +16,13 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <cfServerHost>0.0.0.0</cfServerHost>
+        <cfServerHttpPort>8080</cfServerHttpPort>
+        <cfServerHttpsPort>8443</cfServerHttpsPort>
+        <applicationContext>libertyapi</applicationContext>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>psamolysov.bluemix.wlp.demo</groupId>
@@ -40,6 +47,12 @@
                     <features>
                         <acceptLicense>true</acceptLicense>
                     </features>
+                    <bootstrapProperties>
+                        <default.server.host>${cfServerHost}</default.server.host>
+                        <default.http.port>${cfServerHttpPort}</default.http.port>
+                        <default.https.port>${cfServerHttpsPort}</default.https.port>
+                        <libertyapi.context.root>${applicationContext}</libertyapi.context.root>
+                    </bootstrapProperties>
                 </configuration>
             </plugin>
         </plugins>

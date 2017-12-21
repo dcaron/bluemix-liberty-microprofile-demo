@@ -23,6 +23,31 @@
         <applicationContext>libertyapi</applicationContext>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>fabric8</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <!-- 
+                            fabric8-maven-plugin will be used for integration tests only!
+                            Just skip the plugin here.
+                        -->
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>fabric8-maven-plugin</artifactId>
+                        <version>${fabric8.plugin.version}</version>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>psamolysov.bluemix.wlp.demo</groupId>

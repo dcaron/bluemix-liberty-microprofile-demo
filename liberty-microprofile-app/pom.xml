@@ -33,7 +33,6 @@
                 <testServerHttpPort>9080</testServerHttpPort>
                 <testServerHttpsPort>9443</testServerHttpsPort>
                 <applicationContext>libertyapi</applicationContext>
-                <testProxyHost>localhost</testProxyHost>                
             </properties>
 
             <build>
@@ -101,7 +100,7 @@
                                     -->
                                     <fmp-service>
                                         <type>NodePort</type>
-                                        <port>${testServerHttpPort}:${testServerHttpPort}</port> <!-- if the port was unset, the expose would be ignored -->
+                                        <port>${testServerHttpPort}:${testServerHttpPort}</port> <!-- if the port was unset, the expose would be ignored -->                                       
                                     </fmp-service>
                                 </config>
                             </enricher>

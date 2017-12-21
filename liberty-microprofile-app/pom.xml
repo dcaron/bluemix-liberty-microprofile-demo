@@ -27,6 +27,15 @@
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
+
+            <properties>
+                <testServerHost>*</testServerHost>
+                <testServerHttpPort>9080</testServerHttpPort>
+                <testServerHttpsPort>9443</testServerHttpsPort>
+                <applicationContext>libertyapi</applicationContext>
+                <testProxyHost>localhost</testProxyHost>                
+            </properties>
+
             <build>
                 <plugins>
                     <plugin>
@@ -49,33 +58,57 @@
                             <images>
                                 <image>                                    
                                     <name>${docker.user}/${project.artifactId}:${project.version}</name>
+                                    <alias>meeting-reservation-service</alias>
                                     <build>
                                         <from>websphere-liberty:microProfile</from>
+                                        <tags>
+                                            <tag>latest</tag>
+                                            <tag>${project.version}</tag>
+                                        </tags>                                       
                                         <!-- basic Dockerfile commands -->
                                         <assembly>
-                                            <basedir>/opt/ibm/wlp/usr/servers/defaultServer/dropins</basedir>
-                                            <descriptorRef>artifact</descriptorRef>
+                                            <mode>dir</mode>
+                                            <inline>
+                                                <files>
+                                                    <file>
+                                                        <source>${basedir}/../liberty-microprofile-wlp/src/main/wlp/server.xml</source>
+                                                        <outputDirectory>.</outputDirectory>
+                                                    </file>
+                                                    <file>
+                                                        <source>src/main/wlp/bootstrap.properties</source>
+                                                        <outputDirectory>.</outputDirectory>
+                                                        <filtered>true</filtered>
+                                                    </file>
+                                                    <file>
+                                                        <source>${project.build.directory}/${project.artifactId}.war</source>
+                                                        <outputDirectory>./apps</outputDirectory>
+                                                    </file>
+                                                </files>
+                                            </inline>
+                                            <basedir>/opt/ibm/wlp/usr/servers/defaultServer</basedir>
                                         </assembly>
+                                        <ports>${testServerHttpPort}</ports>
                                     </build>
                                     <watch>
                                         <interval>5000</interval>
                                     </watch>
                                 </image>
                             </images>
-                                <enricher>
-                                    <config>
-                                        <!-- 
-                                            expose the service externally by Kubernetes
-                                        -->
-                                        <fmp-service>
-                                            <type>NodePort</type>
-                                            <port>9080:9080</port> <!-- if the port was unset, the expose would be ignored -->
-                                        </fmp-service>
-                                    </config>
-                                </enricher>
+                            <enricher>
+                                <config>
+                                    <!-- 
+                                        expose the service externally by Kubernetes
+                                    -->
+                                    <fmp-service>
+                                        <type>NodePort</type>
+                                        <port>${testServerHttpPort}:${testServerHttpPort}</port> <!-- if the port was unset, the expose would be ignored -->
+                                    </fmp-service>
+                                </config>
+                            </enricher>
                         </configuration>
                         <executions>
                             <execution>
+                                <id>build-images</id>
                                 <goals>
                                     <goal>resource</goal>
                                     <goal>build</goal>
@@ -86,8 +119,8 @@
                 </plugins>
             </build>
         </profile>
-</profiles>
-
+    </profiles>
+    
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -119,7 +152,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <warName>liberty-microprofile-app</warName>
+                    <warName>${project.artifactId}</warName>
                 </configuration>
             </plugin>
         </plugins>
